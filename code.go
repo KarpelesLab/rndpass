@@ -6,13 +6,6 @@ import (
 	"time"
 )
 
-const (
-	RangeFull       = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-	RangePassword   = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&~#([-|_^@)]{}$*,?;.:/!<>"
-	RangeAlnumLower = "abcdefghijklmnopqrstuvwxyz0123456789"
-	RangeNumeric    = "0123456789"
-)
-
 // we might want to switch this to crypto/rand
 var (
 	codeRnd     *rand.Rand
