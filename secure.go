@@ -2,6 +2,7 @@ package rndpass
 
 import (
 	"crypto/rand"
+	"fmt"
 	"io"
 	"math/big"
 )
@@ -27,4 +28,15 @@ func SecureCode(ln int, set string, rnd io.Reader) (string, error) {
 		ln -= 1
 	}
 	return string(v), nil
+}
+
+// MustSecureCode will generate a code similar to SecureCode, and will panic
+// should the random generator fail to generate randomness (which is the proper
+// action to take in this case).
+func MustSecureCode(ln int, set string, rnd io.Reader) string {
+	res, err := SecureCode(ln, set, rnd)
+	if err != nil {
+		panic(fmt.Sprintf("random generator failed: %s", err))
+	}
+	return res
 }
