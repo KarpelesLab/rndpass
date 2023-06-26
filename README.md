@@ -8,5 +8,5 @@ and having a good version (using secure random generator) of this can be very he
 # Sample use
 
 ```go
-password := rndpass.MustSecureCode(32, rndpass.RangePassword)
+password := rndpass.MustSecureCode(32, rndpass.RangePassword, nil)
 ```
